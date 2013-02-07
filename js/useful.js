@@ -176,3 +176,46 @@ var test = function() {
     xhrGet('/media/js/standalone/libs/gamedev_assets/weapon.json', parseJSON, null);
     xhrGet('/media/js/standalone/libs/gamedev_assets/bg_menu.ogg', playSound, 'arraybuffer');
 };
+
+
+
+// Using the DOM to manipulates a pages html
+// This function grabs a body element from the page and appends a div and a canvas to it
+var manipulateDOM = function() {
+    var body = document.getElementById("body");
+    
+    var div = document.createElement("div");
+    div.id = "gameContent";
+    
+    var canvas = document.createElement("canvas");
+    canvas.id = "gameCanvas";
+    
+    div.appendChild(canvas);
+    body.appendChild(div);
+};
+
+// Javascript does not support true inheritance but we can fake it with the following
+// 1) Weapon should extend Class.
+// 2) MachineGun should extend Weapon.
+// 4) Entity should extend Class.
+// 5) Teleporter should extend Entity.
+
+Weapon = Class.extend({
+    init: function() {
+    }
+});
+
+MachineGun = Weapon.extend({
+    init: function() {
+    }
+});
+
+Entity = Class.extend({
+    init: function() {
+    }
+});
+
+Teleporter = Entity.extend({
+    init: function() {
+    }
+});
